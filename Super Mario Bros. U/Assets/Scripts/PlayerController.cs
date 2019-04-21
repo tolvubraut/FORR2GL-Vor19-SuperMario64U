@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private Animator animator;
     private bool facingLeft;
+    private PlayerAudio audioManager;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioManager = GetComponent<PlayerAudio>();
     }
 
     // Ef leikmaður snýr til hægri, snúa honum til vinstri og öfugt
@@ -49,6 +51,11 @@ public class PlayerController : MonoBehaviour
                 Vector2 jump = new Vector2(0f, jumpSpeed);
                 rb2d.AddForce(jump, ForceMode2D.Impulse);
                 animator.SetBool("Jump", true);
+                // Spila hopphljóð ef ekkert hljóð er í gangi
+                if (!audioManager.IsPlaying())
+                {
+                    audioManager.PlayAudio("Jump");
+                }
             }
             // Ef hann er á jörðinni og ekki að hoppa, stoppa hopp-animation
             else
