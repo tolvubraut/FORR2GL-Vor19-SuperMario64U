@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpSpeed;
+    public LayerMask jumpLayers;
     private Rigidbody2D rb2d;
     private Animator animator;
     private bool facingLeft;
@@ -41,10 +42,10 @@ public class PlayerController : MonoBehaviour
         transform.position += movement * speed * Time.fixedDeltaTime;
 
         // Hopp
-        if (Input.GetButton("Jump"))
+        if (Input.GetButton("Jump") && Physics2D.Raycast(transform.position, Vector2.down, 1f, jumpLayers))
         {
             Vector2 jump = new Vector2(0f, jumpSpeed);
-            rb2d.AddForce(jump);
+            rb2d.AddForce(jump, ForceMode2D.Impulse);
             animator.SetTrigger("Jump");
         }
 
