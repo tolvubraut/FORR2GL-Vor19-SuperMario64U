@@ -8,7 +8,6 @@ public class LevelSplash : MonoBehaviour
 {
     public Text worldText;
     public Text livesText;
-    public VarManager varManager;
     private Canvas canvas;
 
     void Start()
