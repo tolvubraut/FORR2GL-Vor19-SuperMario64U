@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
         facingLeft = !facingLeft;
     }
 
+    // TODO: Replace this with something more accurate
     bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 1f, jumpLayers);
