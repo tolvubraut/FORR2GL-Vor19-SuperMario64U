@@ -9,9 +9,12 @@ public class LevelSplash : MonoBehaviour
     public Text worldText;
     public Text livesText;
     public VarManager varManager;
+    private Canvas canvas;
 
     void Start()
     {
+        canvas = GetComponent<Canvas>();
+
         // Ná í fjölda lífa og setja bil fyrir framan ef færri en 10
         string livesString = VarManager.lives.ToString();
         livesString = livesString.PadLeft(2);
@@ -20,13 +23,15 @@ public class LevelSplash : MonoBehaviour
         worldText.text = $"WORLD {VarManager.worldName}";
         livesText.text = $"× {livesString}";
 
-        // Hlaða inn borði eftir 3 sekúndur
+        // Hlaða inn borði eftir 4 (3.5 + 0.5) sekúndur
         StartCoroutine("WaitThenLoadWorld");
     }
 
     IEnumerator WaitThenLoadWorld()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3.5f);
+        canvas.enabled = false;  // Hætta að sýna canvas til að fá svartan skjá í smástund
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene($"World{VarManager.worldName}");
     }
 }
