@@ -9,7 +9,7 @@ public class DeathZone : MonoBehaviour
         // Kalla á Die() aðferð PlayerDeath klasans ef leikmaður dettur niður
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerDeath>().Die();
+            other.gameObject.GetComponent<PlayerHealth>().Die();
         }
         // Ef eitthvað annað en leikmaður dettur niður, eyða því
         else
