@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool isFrozen = false;
     public float speed;
     public float jumpSpeed;
     public LayerMask jumpLayers;
@@ -11,6 +12,16 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private bool facingLeft;
     private PlayerAudio audioManager;
+    private bool walkingTowardsCastle = false;
+
+    public void WalkTowardsCastle()
+    {
+        if (facingLeft)
+        {
+            Flip();
+        }
+        walkingTowardsCastle = true;
+    }
 
     void Start()
     {
@@ -41,37 +52,49 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0f, 0f);
 
         // Færa leikmann
-        transform.position += movement * speed * Time.fixedDeltaTime;
+        if (!isFrozen)
+        {
+            transform.position += movement * speed * Time.fixedDeltaTime;
 
-        // Athuga hvort leikmaður sé á jörðinni
-        if (IsGrounded()) {
-            // Ef hann velur að hoppa, setja hopp-animation af stað
-            if (Input.GetButton("Jump"))
-            {
-                Vector2 jump = new Vector2(0f, jumpSpeed);
-                rb2d.AddForce(jump, ForceMode2D.Impulse);
-                animator.SetBool("Jump", true);
-                // Spila hopphljóð ef ekkert hljóð er í gangi
-                if (!audioManager.IsPlaying())
+            // Athuga hvort leikmaður sé á jörðinni
+            if (IsGrounded()) {
+                // Ef hann velur að hoppa, setja hopp-animation af stað
+                if (Input.GetButton("Jump"))
                 {
-                    audioManager.PlayAudio("Jump");
+                    Vector2 jump = new Vector2(0f, jumpSpeed);
+                    rb2d.AddForce(jump, ForceMode2D.Impulse);
+                    animator.SetBool("Jump", true);
+                    // Spila hopphljóð ef ekkert hljóð er í gangi
+                    if (!audioManager.IsPlaying())
+                    {
+                        audioManager.PlayAudio("Jump");
+                    }
+                }
+                // Ef hann er á jörðinni og ekki að hoppa, stoppa hopp-animation
+                else
+                {
+                    animator.SetBool("Jump", false);
                 }
             }
-            // Ef hann er á jörðinni og ekki að hoppa, stoppa hopp-animation
-            else
+
+            // Ef leikmaður er ekki að hoppa, færir sig til vinstri og sneri áður til hægri (eða öfugt), snúa honum við
+            if (!animator.GetBool("Jump") &&
+                (moveHorizontal < 0 && !facingLeft || moveHorizontal > 0 && facingLeft))
             {
-                animator.SetBool("Jump", false);
+                Flip();
             }
-        }
 
-        // Ef leikmaður er ekki að hoppa, færir sig til vinstri og sneri áður til hægri (eða öfugt), snúa honum við
-        if (!animator.GetBool("Jump") &&
-            (moveHorizontal < 0 && !facingLeft || moveHorizontal > 0 && facingLeft))
+            // Gönguhraði fyrir animation
+            animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
+        }
+        else
         {
-            Flip();
+            animator.SetFloat("Speed", 0f);
         }
-
-        // Gönguhraði fyrir animation
-        animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
+        if (walkingTowardsCastle)
+        {
+            transform.position += Vector3.right * speed * Time.fixedDeltaTime;
+            animator.SetFloat("Speed", 1f);
+        }
     }
 }

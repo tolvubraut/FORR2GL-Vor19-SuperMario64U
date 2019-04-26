@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/LevelSplash.unity
+- path: Assets/Scenes/World1-1.unity
   isLoaded: 1
   isActive: 1
