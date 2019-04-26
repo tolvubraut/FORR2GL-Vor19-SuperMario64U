@@ -19,7 +19,7 @@ public class LevelSplash : MonoBehaviour
         livesString = livesString.PadLeft(2);
 
         // Skrifa réttan texta
-        worldText.text = $"WORLD {VarManager.worldName}";
+        worldText.text = $"WORLD {VarManager.currentStage.GetStageName()}";
         livesText.text = $"× {livesString}";
 
         // Hlaða inn borði eftir 4 (3.5 + 0.5) sekúndur
@@ -31,6 +31,6 @@ public class LevelSplash : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         canvas.enabled = false;  // Hætta að sýna canvas til að fá svartan skjá í smástund
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene($"World{VarManager.worldName}");
+        SceneManager.LoadScene($"World{VarManager.currentStage.GetStageName()}");
     }
 }

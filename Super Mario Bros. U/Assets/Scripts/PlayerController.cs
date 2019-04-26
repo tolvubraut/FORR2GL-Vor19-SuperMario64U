@@ -14,8 +14,10 @@ public class PlayerController : MonoBehaviour
     private PlayerAudio audioManager;
     private bool walkingTowardsCastle = false;
 
+    // Ganga í átt að kastala þegar borði er lokið
     public void WalkTowardsCastle()
     {
+        // Alltaf snúa til hægri
         if (facingLeft)
         {
             Flip();
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, 0f, 0f);
 
-        // Færa leikmann
+        // Færa leikmann ef hann er ekki frosinn
         if (!isFrozen)
         {
             transform.position += movement * speed * Time.fixedDeltaTime;
@@ -87,10 +89,12 @@ public class PlayerController : MonoBehaviour
             // Gönguhraði fyrir animation
             animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
         }
+        // Ef leikmaður er frosinn á animation-hraði hans að vera 0
         else
         {
             animator.SetFloat("Speed", 0f);
         }
+        // Ef leikmaður er á leið að kastala, hreyfa hann sjálfkrafa
         if (walkingTowardsCastle)
         {
             transform.position += Vector3.right * speed * Time.fixedDeltaTime;

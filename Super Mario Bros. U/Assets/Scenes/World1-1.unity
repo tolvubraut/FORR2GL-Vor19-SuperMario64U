@@ -879,7 +879,7 @@ PrefabInstance:
     - target: {fileID: 4424493165572940968, guid: 2aa37a501f81f4412b2685b2217ad638,
         type: 3}
       propertyPath: m_Name
-      value: Flagpole
+      value: Level End
       objectReference: {fileID: 0}
     - target: {fileID: 4424493165572940968, guid: 2aa37a501f81f4412b2685b2217ad638,
         type: 3}
