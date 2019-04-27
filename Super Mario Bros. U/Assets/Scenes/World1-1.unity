@@ -474,6 +474,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 8300000, guid: aad08f9324ffa4148a5d379b261acfde, type: 3}
   deathSound: {fileID: 8300000, guid: 0b899003315d346e7b4df21e2dd5d003, type: 3}
+  grabFlagpoleSound: {fileID: 8300000, guid: c100fbb4e6af947059ab6887b8811146, type: 3}
+  clearSound: {fileID: 8300000, guid: e78f54e0b84eb49ed92cb74b05acd2f6, type: 3}
 --- !u!114 &573017059
 MonoBehaviour:
   m_ObjectHideFlags: 0

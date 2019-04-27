@@ -6,6 +6,8 @@ public class PlayerAudio : MonoBehaviour
 {
     public AudioClip jumpSound;
     public AudioClip deathSound;
+    public AudioClip grabFlagpoleSound;
+    public AudioClip clearSound;
     private AudioSource audioSource;
     private Dictionary<string, AudioClip> audioMappings;
     
@@ -17,6 +19,8 @@ public class PlayerAudio : MonoBehaviour
         // Tengja strengi (nöfn á atburðum) við hljóð
         audioMappings.Add("Jump", jumpSound);
         audioMappings.Add("Death", deathSound);
+        audioMappings.Add("Grab Flagpole", grabFlagpoleSound);
+        audioMappings.Add("Clear", clearSound);
     }
 
     public bool IsPlaying()
@@ -24,8 +28,9 @@ public class PlayerAudio : MonoBehaviour
         return audioSource.isPlaying;
     }
 
-    public void PlayAudio(string eventName)
+    public float PlayAudio(string eventName)
     {
         audioSource.PlayOneShot(audioMappings[eventName]);
+        return audioMappings[eventName].length;  // Skila lengd hljóðklippu
     }
 }

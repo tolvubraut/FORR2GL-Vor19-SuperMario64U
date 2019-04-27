@@ -47,16 +47,34 @@ public class VarManager : MonoBehaviour
     public static int lives = 5;
 
     // Fara í næsta borð
-    public static void SetNextLevel()
+    public static void GoToNextLevel()
     {
         currentStageIndex++;
         if (currentStageIndex >= stagesAvailable.Length)
         {
-            SceneManager.LoadScene("GameFinished");
+            GoToWinScreen();
         }
         else
         {
             currentStage = stagesAvailable[currentStageIndex];
+            GoToLevelSplash();
         }
+    }
+
+    // Hlaða inn level splash
+    public static void GoToLevelSplash()
+    {
+        SceneManager.LoadScene("LevelSplash");
+    }
+
+    // Hlaða inn "game over"
+    public static void GoToGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public static void GoToWinScreen()
+    {
+        SceneManager.LoadScene("Win");
     }
 }

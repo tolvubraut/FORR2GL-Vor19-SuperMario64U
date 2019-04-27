@@ -10,19 +10,72 @@ public class PlayerController : MonoBehaviour
     public LayerMask jumpLayers;
     private Rigidbody2D rb2d;
     private Animator animator;
-    private bool facingLeft;
+    private bool isFacingLeft = false;
     private PlayerAudio audioManager;
     private bool walkingTowardsCastle = false;
+    private float clearSoundLength;
+    private float flagpolePosXFacingLeft;
 
-    // Ganga í átt að kastala þegar borði er lokið
-    public void WalkTowardsCastle()
+    // Klára borð
+    public void ClearCourse(float flagpolePosX, float xOffset)
     {
-        // Alltaf snúa til hægri
-        if (facingLeft)
+        // Staðsetning leikmanns m.v. fánastöng ef hann snýr til vinstri (ekki hægri)
+        flagpolePosXFacingLeft = flagpolePosX + xOffset;
+        // Leikmaður á að byrja á að snúa til hægri
+        if (isFacingLeft)
         {
             Flip();
         }
+        // Grípa í fánastöng
+        GrabFlagpole(flagpolePosX - xOffset);
+        // Bíða síðan og klára borð
+        StartCoroutine("WaitThenClearCourse");
+    }
+
+    void MovePlayerXTo(float newPosX)
+    {
+        Vector3 playerPos = transform.position;
+        playerPos.x = newPosX;
+        transform.position = playerPos;
+    }
+
+    // Grípa í fánastöng
+    void GrabFlagpole(float flagpolePosX)
+    {
+        // Stilla animator rétt
+        animator.SetBool("Jump", false);
+        animator.SetBool("On Flagpole", true);
+        
+        // Færa leikmann á réttan stað
+        MovePlayerXTo(flagpolePosX);
+        isFrozen = true;  // Leikmaður má ekki hreyfa sig
+        // Spila hljóð
+        clearSoundLength = audioManager.PlayAudio("Grab Flagpole");
+    }
+
+    IEnumerator WaitThenClearCourse()
+    {
+        // Bíða í 2 sekúndur
+        yield return new WaitForSeconds(1.5f);
+        Flip();  // Snúa leikmanni til vinstri
+
+        // Færa leikmann á réttan stað m.v. hvernig hann snýr
+        MovePlayerXTo(flagpolePosXFacingLeft);
+
+        // Bíða í 0.5 sekúndur
+        yield return new WaitForSeconds(0.5f);
+        Flip();  // Snúa leikmanni aftur til hægri
+        animator.SetBool("On Flagpole", false);  // Láta leikmann sleppa fánastöng
+
+        // Spila clear hljóð og ganga í átt að kastala
+        audioManager.PlayAudio("Clear");
         walkingTowardsCastle = true;
+        
+        // Bíða þar til clear hljóð er búið + 1 sek og fara í næsta borð
+        yield return new WaitForSeconds(clearSoundLength + 1f);
+        
+        // Fara í næsta borð
+        VarManager.GoToNextLevel();
     }
 
     void Start()
@@ -38,7 +91,7 @@ public class PlayerController : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         currentScale.x = -currentScale.x;
         transform.localScale = currentScale;
-        facingLeft = !facingLeft;
+        isFacingLeft = !isFacingLeft;
     }
 
     // TODO: Replace this with something more accurate
@@ -81,7 +134,7 @@ public class PlayerController : MonoBehaviour
 
             // Ef leikmaður er ekki að hoppa, færir sig til vinstri og sneri áður til hægri (eða öfugt), snúa honum við
             if (!animator.GetBool("Jump") &&
-                (moveHorizontal < 0 && !facingLeft || moveHorizontal > 0 && facingLeft))
+                (moveHorizontal < 0 && !isFacingLeft || moveHorizontal > 0 && isFacingLeft))
             {
                 Flip();
             }

@@ -21,12 +21,12 @@ public class PlayerHealth : MonoBehaviour
         // Ef leikmaður á fleiri en 0 líf eftir, byrja aftur á borði
         if (VarManager.lives > 0)
         {
-            SceneManager.LoadScene("LevelSplash");
+            VarManager.GoToLevelSplash();
         }
         // Annars er leik lokið
         else
         {
-            SceneManager.LoadScene("GameOver");
+            VarManager.GoToGameOver();
         }
     }
 
