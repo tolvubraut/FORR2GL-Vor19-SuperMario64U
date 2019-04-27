@@ -130,8 +130,8 @@ GameObject:
   - component: {fileID: 4535725009346725305}
   - component: {fileID: 4559068454474694274}
   - component: {fileID: 2739617405253870649}
-  - component: {fileID: 6028177483165552503}
-  m_Layer: 0
+  - component: {fileID: 3250200165498006846}
+  m_Layer: 12
   m_Name: Flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 585256461
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 1e2e0d0369f184b52bb053e652636685, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -230,7 +230,7 @@ PolygonCollider2D:
       - {x: 0.43, y: -0.5}
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: 0.5}
---- !u!50 &6028177483165552503
+--- !u!50 &3250200165498006846
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!1 &4424493165572940968
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 8900712119206680219}
   m_Layer: 11
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: FlagpoleBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +350,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 585256461
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 495a693fabefc479fac18857d2f89a7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -458,7 +458,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 585256461
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ba85f774ded8d4e7e9c9f16a87da6a6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -510,9 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 0}
-  flag: {fileID: 6028177483165552503}
-  flagpoleSound: {fileID: 8300000, guid: c100fbb4e6af947059ab6887b8811146, type: 3}
-  clearSound: {fileID: 8300000, guid: e78f54e0b84eb49ed92cb74b05acd2f6, type: 3}
+  flag: {fileID: 3250200165498006846}
 --- !u!82 &7454009865030454717
 AudioSource:
   m_ObjectHideFlags: 0

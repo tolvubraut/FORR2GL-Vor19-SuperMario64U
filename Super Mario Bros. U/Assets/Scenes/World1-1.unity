@@ -272,7 +272,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2049234067
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300042, guid: 6572f197dbb4947959ca8512ae12f59d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -973,11 +973,6 @@ PrefabInstance:
       propertyPath: playerAudioManager
       value: 
       objectReference: {fileID: 573017058}
-    - target: {fileID: 5386338884235601316, guid: 2aa37a501f81f4412b2685b2217ad638,
-        type: 3}
-      propertyPath: flag
-      value: 
-      objectReference: {fileID: 4424493166993990234}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aa37a501f81f4412b2685b2217ad638, type: 3}
 --- !u!1 &4424493166993990232 stripped
@@ -1016,24 +1011,3 @@ PolygonCollider2D:
       - {x: 0.43, y: -0.5}
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: 0.5}
---- !u!50 &4424493166993990234
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4424493166993990232}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

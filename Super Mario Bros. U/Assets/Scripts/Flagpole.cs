@@ -20,6 +20,9 @@ public class Flagpole : MonoBehaviour
             // Stoppa bakgrunnstónlist
             backgroundMusic.Stop();
 
+            // Kveikja á þyngdarkröftum á fána svo hann detti niður
+            flag.bodyType = RigidbodyType2D.Dynamic;
+
             // Setja af stað lok borðs
             playerController.ClearCourse(transform.position.x, xOffset);
         }

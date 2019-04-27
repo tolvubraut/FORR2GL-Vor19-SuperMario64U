@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FlagpoleBase
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Ground
   - Death Zone
   - Flagpole
-  - 
+  - FlagpoleFlag
   - 
   - 
   - 
@@ -47,9 +48,9 @@ TagManager:
   - name: Ground
     uniqueID: 2563956527
     locked: 0
-  - name: Player
-    uniqueID: 2049234067
-    locked: 0
   - name: Flagpole
     uniqueID: 585256461
+    locked: 0
+  - name: Player
+    uniqueID: 2049234067
     locked: 0
