@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool walkingTowardsCastle = false;
     private float clearSoundLength;
     private float flagpolePosXFacingLeft;
+    private int enemyLayer;
 
     // Stilla af hvort leikmaður sé lengst til vinstri (til að stoppa hann af)
     public void SetFarLeft(bool state)
@@ -90,6 +91,7 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioManager = GetComponent<PlayerAudio>();
+        enemyLayer = LayerMask.NameToLayer("Enemy");
     }
 
     // Ef leikmaður snýr til hægri, snúa honum til vinstri og öfugt
@@ -105,6 +107,18 @@ public class PlayerController : MonoBehaviour
     bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 1f, jumpLayers);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            // TODO: fix this (always triggers)
+            if (Physics2D.Raycast(transform.position, Vector2.down, 1f, enemyLayer))
+            {
+                other.gameObject.GetComponent<EnemyController>().Squish();
+            }
+        }
     }
 
     void FixedUpdate()
