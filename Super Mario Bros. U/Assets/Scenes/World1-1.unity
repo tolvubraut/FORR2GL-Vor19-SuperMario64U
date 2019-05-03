@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0d746b3e72841b48e2a011b82f3f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 573017053}
+  player: {fileID: 573017050}
   levelEnd: {fileID: 335172603}
 --- !u!20 &519420031
 Camera:
@@ -436,6 +436,7 @@ MonoBehaviour:
   jumpLayers:
     serializedVersion: 2
     m_Bits: 2560
+  isFarLeft: 0
 --- !u!82 &573017057
 AudioSource:
   m_ObjectHideFlags: 0

@@ -11,10 +11,17 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private Animator animator;
     private bool isFacingLeft = false;
+    private bool isFarLeft = false;
     private PlayerAudio audioManager;
     private bool walkingTowardsCastle = false;
     private float clearSoundLength;
     private float flagpolePosXFacingLeft;
+
+    // Stilla af hvort leikmaður sé lengst til vinstri (til að stoppa hann af)
+    public void SetFarLeft(bool state)
+    {
+        isFarLeft = state;
+    }
 
     // Klára borð
     public void ClearCourse(float flagpolePosX, float xOffset)
@@ -109,7 +116,11 @@ public class PlayerController : MonoBehaviour
         // Færa leikmann ef hann er ekki frosinn
         if (!isFrozen)
         {
-            transform.position += movement * speed * Time.fixedDeltaTime;
+            // Leikmaður má ekki hreyfa sig til vinstri ef hann er lengst til vinstri
+            if (!isFarLeft || moveHorizontal > 0f)
+            {
+                transform.position += movement * speed * Time.fixedDeltaTime;
+            }
 
             // Athuga hvort leikmaður sé á jörðinni
             if (IsGrounded()) {
