@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         MovePlayerXTo(flagpolePosX);
         isFrozen = true;  // Leikmaður má ekki hreyfa sig
         // Spila hljóð
-        clearSoundLength = audioManager.PlayAudio("Grab Flagpole");
+        audioManager.PlayAudio("Grab Flagpole");
     }
 
     IEnumerator WaitThenClearCourse()
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("On Flagpole", false);  // Láta leikmann sleppa fánastöng
 
         // Spila clear hljóð og ganga í átt að kastala
-        audioManager.PlayAudio("Clear");
+        clearSoundLength = audioManager.PlayAudio("Clear");  // Geyma lengd í clearSoundLength til að vita hvenær á að fara í næsta borð
         walkingTowardsCastle = true;
         
         // Bíða þar til clear hljóð er búið + 1 sek og fara í næsta borð
