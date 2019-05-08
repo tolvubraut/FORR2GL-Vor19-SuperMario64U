@@ -276,7 +276,6 @@ GameObject:
   m_Component:
   - component: {fileID: 573017053}
   - component: {fileID: 573017052}
-  - component: {fileID: 573017051}
   - component: {fileID: 573017054}
   - component: {fileID: 573017055}
   - component: {fileID: 573017056}
@@ -290,25 +289,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &573017051
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573017050}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 84dc5f8e6a0634e269c2752b76858478, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &573017052
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -436,6 +416,7 @@ MonoBehaviour:
   jumpLayers:
     serializedVersion: 2
     m_Bits: 2560
+  cameraController: {fileID: 519420030}
 --- !u!82 &573017057
 AudioSource:
   m_ObjectHideFlags: 0

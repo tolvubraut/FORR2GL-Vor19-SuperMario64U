@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jumpSpeed;
     public LayerMask jumpLayers;
+    public CameraController cameraController;
     private Rigidbody2D rb2d;
     private Animator animator;
     private bool isFacingLeft = false;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         }
         // Grípa í fánastöng
         GrabFlagpole(flagpolePosX - xOffset);
+        cameraController.SetStatic(true);  // Festa myndavél áður en leikmaður snýr sér
         // Bíða síðan og klára borð
         StartCoroutine("WaitThenClearCourse");
     }
@@ -81,6 +83,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Flip();  // Snúa leikmanni aftur til hægri
         animator.SetBool("On Flagpole", false);  // Láta leikmann sleppa fánastöng
+
+        cameraController.SetStatic(false);  // Losa myndavél þegar leikmaður er að fara af fánastöng
 
         // Spila clear hljóð og ganga í átt að kastala
         clearSoundLength = audioManager.PlayAudio("Clear");  // Geyma lengd í clearSoundLength til að vita hvenær á að fara í næsta borð
