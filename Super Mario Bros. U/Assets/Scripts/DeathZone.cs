@@ -6,7 +6,7 @@ public class DeathZone : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Kalla á Die() aðferð PlayerDeath klasans ef leikmaður dettur niður
+        // Kalla á Die() aðferð PlayerHealth klasans ef leikmaður dettur niður
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerHealth>().Die();

@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.tag == "Player" ||
             other.gameObject.layer == groundLayer)
         {
-            return;   
+            return;
         }
         ChangeDirection();
     }

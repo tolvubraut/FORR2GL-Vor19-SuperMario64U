@@ -13,10 +13,17 @@ public class PlayerController : MonoBehaviour
     private bool isFacingLeft = false;
     private bool isFarLeft = false;
     private PlayerAudio audioManager;
+    private PlayerHealth playerHealth;
     private bool walkingTowardsCastle = false;
     private float clearSoundLength;
     private float flagpolePosXFacingLeft;
     private int enemyLayer;
+
+
+    public void SetFrozen(bool state)
+    {
+        isFrozen = state;
+    }
 
     // Stilla af hvort leikmaður sé lengst til vinstri (til að stoppa hann af)
     public void SetFarLeft(bool state)
@@ -56,7 +63,7 @@ public class PlayerController : MonoBehaviour
         
         // Færa leikmann á réttan stað
         MovePlayerXTo(flagpolePosX);
-        isFrozen = true;  // Leikmaður má ekki hreyfa sig
+        SetFrozen(true);  // Leikmaður má ekki hreyfa sig
         // Spila hljóð
         audioManager.PlayAudio("Grab Flagpole");
     }
@@ -89,9 +96,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = this.transform.parent.gameObject.GetComponent<Animator>();  // Animator er á foreldri svo dauði geti haft "relative position"
         audioManager = GetComponent<PlayerAudio>();
         enemyLayer = LayerMask.NameToLayer("Enemy");
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     // Ef leikmaður snýr til hægri, snúa honum til vinstri og öfugt
@@ -103,7 +111,6 @@ public class PlayerController : MonoBehaviour
         isFacingLeft = !isFacingLeft;
     }
 
-    // TODO: Replace this with something more accurate
     bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 1f, jumpLayers);
@@ -113,10 +120,19 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            // TODO: fix this (always triggers)
-            if (Physics2D.Raycast(transform.position, Vector2.down, 1f, enemyLayer))
+            Collider2D collider = other.collider;
+            Vector3 contactPoint = other.GetContact(0).point;
+            Vector3 center = collider.bounds.center;
+            
+            // Athuga hvort árekstur sé að ofan, ef svo er kremja óvin
+            if (contactPoint.y > center.y)
             {
                 other.gameObject.GetComponent<EnemyController>().Squish();
+            }
+            // Annars deyr leikmaður
+            else
+            {
+                playerHealth.HitByEnemy();
             }
         }
     }
