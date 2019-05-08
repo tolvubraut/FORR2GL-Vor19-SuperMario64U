@@ -392,7 +392,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFrozen: 0
   speed: 5
-  jumpSpeed: 1
+  jumpSpeed: 1.5
   jumpLayers:
     serializedVersion: 2
     m_Bits: 2560
