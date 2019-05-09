@@ -120,27 +120,6 @@ public class PlayerController : MonoBehaviour
         return Physics2D.Raycast(transform.position, Vector2.down, 1f, jumpLayers);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Collider2D collider = other.collider;
-            Vector3 contactPoint = other.GetContact(0).point;
-            Vector3 center = collider.bounds.center;
-            
-            // Athuga hvort árekstur sé að ofan, ef svo er kremja óvin
-            if (contactPoint.y > center.y)
-            {
-                other.gameObject.GetComponent<EnemyController>().Squish();
-            }
-            // Annars deyr leikmaður
-            else
-            {
-                playerHealth.HitByEnemy();
-            }
-        }
-    }
-
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");

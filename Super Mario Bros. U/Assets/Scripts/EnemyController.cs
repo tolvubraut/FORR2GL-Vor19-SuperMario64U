@@ -50,15 +50,29 @@ public class EnemyController : MonoBehaviour
         movement = -movement;
     }
 
-    // Ef óvinur rekst á eitthvað sem er ekki leikmaður eða jörðin, snúa við
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player" ||
-            other.gameObject.layer == groundLayer)
+        // Ef óvinur rekst á leikmann, athuga á hvaða hlið
+        if (other.gameObject.tag == "Player")
         {
-            return;
+            ContactPoint2D contactPoint = other.GetContact(0);
+
+            // Ef áreksturinn er að ofan hoppaði leikmaðurinn á óvininn og óvinurinn deyr
+            if (contactPoint.normal.y == -1)
+            {
+                Squish();
+            }
+            // Annars fór óvinurinn á leikmanninn og leikmaðurinn meiðir sig
+            else
+            {
+                other.gameObject.GetComponent<PlayerHealth>().HitByEnemy();
+            }
         }
-        ChangeDirection();
+        // Ef óvinur rekst á eitthvað sem er ekki leikmaður eða jörðin, snúa við
+        else if (other.gameObject.layer != groundLayer)
+        {
+            ChangeDirection();
+        }
     }
 
     // Láta óvin hreyfa sig
