@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FlagpoleBase
   - Enemy
+  - QuestionBlock
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Flagpole
   - FlagpoleFlag
   - Enemies
-  - 
+  - Level
   - 
   - 
   - 
