@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private bool isFarLeft = false;
     private PlayerAudio audioManager;
     private PlayerHealth playerHealth;
+    private float speedScale;
     private bool walkingTowardsCastle = false;
     private float clearSoundLength;
     private float flagpolePosXFacingLeft;
@@ -124,6 +125,18 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
+        bool isRunning = Input.GetButton("Run");
+
+        // Leikmaður fer 50% hraðar ef hann hleypur
+        if (isRunning)
+        {
+            speedScale = 1.5f;
+        }
+        else
+        {
+            speedScale = 1f;
+        }
+
         Vector3 movement = new Vector3(moveHorizontal, 0f, 0f);
 
         // Færa leikmann ef hann er ekki frosinn
@@ -132,7 +145,7 @@ public class PlayerController : MonoBehaviour
             // Leikmaður má ekki hreyfa sig til vinstri ef hann er lengst til vinstri
             if (!isFarLeft || moveHorizontal > 0f)
             {
-                transform.position += movement * speed * Time.fixedDeltaTime;
+                transform.position += movement * speed * speedScale * Time.fixedDeltaTime;
             }
 
             // Athuga hvort leikmaður sé á jörðinni
@@ -164,7 +177,7 @@ public class PlayerController : MonoBehaviour
             }
 
             // Gönguhraði fyrir animation
-            animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
+            animator.SetFloat("Speed", Mathf.Abs(moveHorizontal) * speedScale);
         }
         // Ef leikmaður er frosinn á animation-hraði hans að vera 0
         else
