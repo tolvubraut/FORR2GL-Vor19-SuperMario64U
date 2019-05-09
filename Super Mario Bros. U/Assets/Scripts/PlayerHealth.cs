@@ -60,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
         // Ef leikmaður er ekki þegar að deyja, stoppa tónlist, spila dauðahljóð og endurræsa senu
         if (!isDying)
         {
+            playerController.SetFrozen(true);
             isDying = true;
             backgroundAudio.Stop();
             audioManager.PlayAudio("Death");

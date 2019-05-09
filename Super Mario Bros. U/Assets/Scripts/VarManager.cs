@@ -45,6 +45,19 @@ public class VarManager : MonoBehaviour
     public static Stage currentStage = stagesAvailable[0];
     // Líf sem leikmaður hefur
     public static int lives = 5;
+    public static int coins = 0;
+
+    // Ná í pening
+    public static void CollectCoin()
+    {
+        coins++;
+        // Ef leikmaður fær 100 peninga fær hann aukalíf
+        if (coins > 99)
+        {
+            lives++;
+            coins = 0;
+        }
+    }
 
     // Fara í næsta borð
     public static void GoToNextLevel()
@@ -76,5 +89,14 @@ public class VarManager : MonoBehaviour
     public static void GoToWinScreen()
     {
         SceneManager.LoadScene("Win");
+    }
+
+    // Núllstilla leik
+    public static void ResetAll()
+    {
+        currentStageIndex = 0;
+        currentStage = stagesAvailable[0];
+        lives = 5;
+        coins = 0;
     }
 }
