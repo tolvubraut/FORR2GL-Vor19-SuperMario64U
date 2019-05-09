@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class QuestionBlock : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioClip bumpSound;
+    private Animator animator;
+    private AudioSource audioSource;
+    private bool isActive = true;
+
     void Start()
     {
-        
+        animator = this.transform.parent.gameObject.GetComponent<Animator>();  // Animator er á parent svo hægt sé að færa kassann "relatively"
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void HitByPlayer()
     {
-        
+        audioSource.PlayOneShot(bumpSound);
+        if (isActive)
+        {
+            animator.SetTrigger("Hit");
+            isActive = false;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        // Ef leikmaður rekst á kassann, athuga á hvaða hlið áreksturinn er
+        if (other.gameObject.tag == "Player")
+        {
+            ContactPoint2D contactPoint = other.GetContact(0);
+            
+            // Ef áreksturinn er að neðan
+            if (contactPoint.normal.y == 1)
+            {
+                HitByPlayer();
+            }
+        }
     }
 }
