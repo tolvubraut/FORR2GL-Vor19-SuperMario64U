@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4453247732060511659}
   - component: {fileID: 4453247732060511658}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Spin Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
