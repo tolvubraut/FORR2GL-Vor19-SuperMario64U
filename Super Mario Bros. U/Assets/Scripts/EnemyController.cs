@@ -13,7 +13,6 @@ public class EnemyController : MonoBehaviour
     private bool goingLeft = false;
     private bool isSquished = false;
     private Vector3 movement = Vector3.left;
-    private int groundLayer;
 
     void Start()
     {
@@ -21,7 +20,6 @@ public class EnemyController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         rb2d = GetComponent<Rigidbody2D>();
         enemyCollider = GetComponent<BoxCollider2D>();
-        groundLayer = LayerMask.NameToLayer("Ground");
     }
 
     // Ef leikmaður hoppar á óvin
@@ -52,10 +50,11 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        ContactPoint2D contactPoint = other.GetContact(0);
+
         // Ef óvinur rekst á leikmann, athuga á hvaða hlið
         if (other.gameObject.tag == "Player")
         {
-            ContactPoint2D contactPoint = other.GetContact(0);
 
             // Ef áreksturinn er að ofan hoppaði leikmaðurinn á óvininn og óvinurinn deyr
             if (contactPoint.normal.y == -1)
@@ -68,8 +67,8 @@ public class EnemyController : MonoBehaviour
                 other.gameObject.GetComponent<PlayerHealth>().HitByEnemy();
             }
         }
-        // Ef óvinur rekst á eitthvað sem er ekki leikmaður eða jörðin, snúa við
-        else if (other.gameObject.layer != groundLayer)
+        // Ef óvinur rekst á eitthvað á x-ásnum, snúa við
+        else if (contactPoint.normal.y == 0)
         {
             ChangeDirection();
         }

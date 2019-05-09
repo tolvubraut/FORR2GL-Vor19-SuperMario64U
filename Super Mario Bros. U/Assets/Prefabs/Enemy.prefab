@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1580781831
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 7cf037b0abab241a4af87daa2d116760, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -196,6 +196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   squishSound: {fileID: 8300000, guid: 89c8f8ddb94914a8fb077c94c794b420, type: 3}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 2560
 --- !u!82 &1289828012086649779
 AudioSource:
   m_ObjectHideFlags: 0
