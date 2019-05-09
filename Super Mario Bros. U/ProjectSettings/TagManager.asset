@@ -47,6 +47,9 @@ TagManager:
   - name: Background
     uniqueID: 2421744507
     locked: 0
+  - name: Pipe
+    uniqueID: 1836470887
+    locked: 0
   - name: Ground
     uniqueID: 2563956527
     locked: 0
