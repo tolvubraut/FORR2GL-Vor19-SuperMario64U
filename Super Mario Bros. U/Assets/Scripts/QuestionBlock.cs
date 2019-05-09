@@ -5,6 +5,8 @@ using UnityEngine;
 public class QuestionBlock : MonoBehaviour
 {
     public AudioClip bumpSound;
+    public AudioClip itemSound;
+    public GameObject itemPrefab;
     private Animator animator;
     private AudioSource audioSource;
     private bool isActive = true;
@@ -18,10 +20,15 @@ public class QuestionBlock : MonoBehaviour
     void HitByPlayer()
     {
         audioSource.PlayOneShot(bumpSound);
+        // Ef ekki er búið að hoppa undir kassann
         if (isActive)
         {
             animator.SetTrigger("Hit");
-            isActive = false;
+            isActive = false;  // Bara hægt að hoppa einu sinni á kassann
+            // Búa til hlut upp úr kassa
+            Instantiate(itemPrefab, transform.position, Quaternion.identity);
+            // Spila hljóð hlutar
+            audioSource.PlayOneShot(itemSound);
         }
     }
 
