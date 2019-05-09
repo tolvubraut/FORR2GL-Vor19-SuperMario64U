@@ -74,6 +74,12 @@ public class VarManager : MonoBehaviour
         }
     }
 
+    // Fara á upphafsskjá
+    public static void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     // Hlaða inn level splash
     public static void GoToLevelSplash()
     {

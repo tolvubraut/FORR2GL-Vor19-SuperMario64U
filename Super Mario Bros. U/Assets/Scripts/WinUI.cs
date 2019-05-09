@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class WinUI : MonoBehaviour
 {
+    // Byrja leik
+    public void StartGame()
+    {
+        VarManager.GoToLevelSplash();
+    }
+    // Endurræsa leik (núllstilla allt og byrja)
     public void RestartGame()
     {
         VarManager.ResetAll();
-        VarManager.GoToLevelSplash();
+        StartGame();
     }
-
+    // Loka leik
     public void QuitGame()
     {
         Application.Quit();
