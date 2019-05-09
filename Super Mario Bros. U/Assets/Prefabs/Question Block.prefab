@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5711054255918169631}
   - component: {fileID: 5711054255918169628}
-  - component: {fileID: 5711054255918169629}
   - component: {fileID: 5711054255918169625}
   - component: {fileID: 920598837485723572}
   - component: {fileID: 877142439062715039}
@@ -83,25 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5711054255918169629
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5711054255918169618}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53b1b4a58faec4e8fa965e3236364329, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &5711054255918169625
 BoxCollider2D:
   m_ObjectHideFlags: 0
