@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public Camera camera;
     public float speed;
     public AudioClip squishSound;
     private AudioSource audioSource;
@@ -12,6 +13,7 @@ public class EnemyController : MonoBehaviour
     private BoxCollider2D enemyCollider;
     private bool goingLeft = false;
     private bool isSquished = false;
+    private bool isActive = false;
     private Vector3 movement = Vector3.left;
 
     void Start()
@@ -77,7 +79,13 @@ public class EnemyController : MonoBehaviour
     // Láta óvin hreyfa sig
     void FixedUpdate()
     {
-        if (!isSquished)
+        // Ef leikmaður kemur nálægt óvini, virkja hann
+        if (!isActive && camera.WorldToScreenPoint(transform.position).x < Screen.width + 100f)
+        {
+            isActive = true;
+        }
+        // Óvinir hreyfa sig ef þeir eru aktífir og ekki búið að kremja þá
+        if (isActive && !isSquished)
         {
             transform.position += movement * speed * Time.fixedDeltaTime;
         }

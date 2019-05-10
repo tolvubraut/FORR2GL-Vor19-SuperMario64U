@@ -464,6 +464,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &31742144 stripped
@@ -953,6 +958,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &78795778 stripped
@@ -1971,6 +1981,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &242966982 stripped
@@ -3077,6 +3092,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &371845428 stripped
@@ -3382,6 +3402,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &473982259 stripped
@@ -3517,6 +3542,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &481067836 stripped
@@ -3633,6 +3663,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &484036740 stripped
@@ -4632,6 +4667,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &682920180 stripped
@@ -7445,6 +7485,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &1169136323 stripped
@@ -9511,6 +9556,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &1503562427 stripped
@@ -11035,6 +11085,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &1759152325 stripped
@@ -11523,6 +11578,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &1864932479 stripped
@@ -12754,6 +12814,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5004057939512037316, guid: 3ba0de3fb59b04d62a0e96fb30d4480e,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba0de3fb59b04d62a0e96fb30d4480e, type: 3}
 --- !u!4 &192401876811668081 stripped
