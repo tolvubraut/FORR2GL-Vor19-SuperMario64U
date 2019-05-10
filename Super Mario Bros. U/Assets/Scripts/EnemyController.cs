@@ -79,8 +79,8 @@ public class EnemyController : MonoBehaviour
     // Láta óvin hreyfa sig
     void FixedUpdate()
     {
-        // Ef leikmaður kemur nálægt óvini, virkja hann
-        if (!isActive && camera.WorldToScreenPoint(transform.position).x < Screen.width + 100f)
+        // Ef myndavél kemur nálægt óvini, virkja hann
+        if (!isActive && camera.WorldToScreenPoint(transform.position).x < Screen.width + 100f)  // Virkjast þegar myndavél er innan við 100 einingar frá óvini
         {
             isActive = true;
         }
