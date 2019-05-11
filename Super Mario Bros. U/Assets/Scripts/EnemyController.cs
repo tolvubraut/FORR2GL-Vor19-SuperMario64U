@@ -61,6 +61,7 @@ public class EnemyController : MonoBehaviour
             // Ef áreksturinn er að ofan hoppaði leikmaðurinn á óvininn og óvinurinn deyr
             if (contactPoint.normal.y == -1)
             {
+                other.gameObject.GetComponent<PlayerController>().BounceOffEnemy();
                 Squish();
             }
             // Annars fór óvinurinn á leikmanninn og leikmaðurinn meiðir sig

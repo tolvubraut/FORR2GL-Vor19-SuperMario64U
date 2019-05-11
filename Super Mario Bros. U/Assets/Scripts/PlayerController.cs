@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     private float flagpolePosXFacingLeft;
     private int enemyLayer;
 
+    public void BounceOffEnemy()
+    {
+        rb2d.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+    }
 
     public void SetFrozen(bool state)
     {
