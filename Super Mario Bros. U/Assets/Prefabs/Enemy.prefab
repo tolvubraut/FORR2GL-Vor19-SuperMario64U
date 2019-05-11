@@ -194,11 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce120e28f03142769370a03786cd363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
   speed: 2
   squishSound: {fileID: 8300000, guid: 89c8f8ddb94914a8fb077c94c794b420, type: 3}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 2560
 --- !u!82 &1289828012086649779
 AudioSource:
   m_ObjectHideFlags: 0
