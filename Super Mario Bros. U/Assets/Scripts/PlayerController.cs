@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private PlayerAudio audioManager;
     private PlayerHealth playerHealth;
     private float speedScale;
+    private float animSpeedScale;
     private bool walkingTowardsCastle = false;
     private float clearSoundLength;
     private float flagpolePosXFacingLeft;
@@ -131,10 +132,12 @@ public class PlayerController : MonoBehaviour
         if (isRunning)
         {
             speedScale = 1.5f;
+            animSpeedScale = 2f;  // Animation er keyrt á 2x ef leikmaður hleypur
         }
         else
         {
             speedScale = 1f;
+            animSpeedScale = 1f;
         }
 
         Vector3 movement = new Vector3(moveHorizontal, 0f, 0f);
@@ -177,7 +180,7 @@ public class PlayerController : MonoBehaviour
             }
 
             // Gönguhraði fyrir animation
-            animator.SetFloat("Speed", Mathf.Abs(moveHorizontal) * speedScale);
+            animator.SetFloat("Speed", Mathf.Abs(moveHorizontal) * animSpeedScale);
         }
         // Ef leikmaður er frosinn á animation-hraði hans að vera 0
         else
