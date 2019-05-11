@@ -51,8 +51,8 @@ public class VarManager : MonoBehaviour
     public static void CollectCoin()
     {
         coins++;
-        // Ef leikmaður fær 100 peninga fær hann aukalíf
-        if (coins > 99)
+        // Ef leikmaður fær 10 peninga fær hann aukalíf
+        if (coins > 9)
         {
             lives++;
             coins = 0;
