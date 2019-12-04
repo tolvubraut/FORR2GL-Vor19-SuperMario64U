@@ -16,8 +16,8 @@
 title: Super Mario Bros. U
 description: >- # this means to ignore newlines until "baseurl:"
   Verkefni 5 í FORR2GL á tölvubraut í Tækniskólanum - Reynir Aron Magnússon
-baseurl: "/forr2gl-verkefni-5" # the subpath of your site, e.g. /blog
-url: "https://reyniraron.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/FORR2GL-Vor19-SuperMario64U" # the subpath of your site, e.g. /blog
+url: "https://tolvubraut.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: reyniraron
 github_username:  reyniraron
 show_downloads: true
